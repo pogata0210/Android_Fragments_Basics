@@ -6,7 +6,9 @@ import android.os.Bundle;
 
 import android.content.Intent;
 
-    public class MainActivity extends AppCompatActivity {
+import io.magicthegathering.javasdk.resource.Card;
+
+public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -16,5 +18,12 @@ import android.content.Intent;
             MtgCardFragment fragment = new MtgCardFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
         }
+        @Override
+        public void onListFragmentInteraction(Card item) {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("card", item);
+
+   
+    }
 
     }
